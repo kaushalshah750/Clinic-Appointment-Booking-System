@@ -73,3 +73,16 @@
 .vh-90{
     height: 90vh !important;
 }
+
+.d-grid{
+    display: grid;
+}
+
+
+.grid-1-2{
+    grid-template-columns: 1fr 2fr;
+}
+
+.gap30{
+    gap: 30px;
+}
