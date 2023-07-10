@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,14 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  appointment:any = []
+  appointments:any = []
+  date:any = ""
 
-  constructor(){}
+  constructor(
+    private adminservice: AdminService
+    ){}
 
   ngOnInit(){
     this.getappointment()
   }
 
   getappointment(){
+    this.adminservice.getappointment().subscribe((res:any)=>{
+      this.appointments = res
+      this.date = new Date()
+      console.log(this.date)
+    })
   }
 }
